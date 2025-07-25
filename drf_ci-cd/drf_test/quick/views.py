@@ -1,7 +1,8 @@
 from django.contrib.auth.models import User, Group
 from rest_framework import viewsets
 from rest_framework import permissions
-from quick.serializers import UserSerializer, GroupSerializer
+from quick.models import Post
+from quick.serializers import UserSerializer, GroupSerializer, PostSerializer
 
 
 # Create your views here.
@@ -15,3 +16,7 @@ class GroupViewSet(viewsets.ModelViewSet):
     queryset = Group.objects.all()
     serializer_class = GroupSerializer
     permission_classes = [permissions.IsAuthenticated]
+
+class PostViewSet(viewsets.ModelViewSet):
+    queryset = Post.objects.all()
+    serializer_class = PostSerializer
